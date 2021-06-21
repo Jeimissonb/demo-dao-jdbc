@@ -3,6 +3,7 @@ package application;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.Scanner;
 
 import model.dao.DaoFactory;
 import model.dao.SellerDao;
@@ -37,18 +38,25 @@ public class Program {
 			System.out.println(x);
 		}
 		
-		System.out.println();
+		/*System.out.println();
 		System.out.println("===| TESTING FOUR: INSERT - SELLER |=== ");
 		Seller seled = new Seller(null, "João", "João@gmail.com", new Date() , 3090.0, dep);
 		sellerDao.insert(seled);
-		System.out.println("Id: "+seled.getId());
+		System.out.println("Id: "+seled.getId());*/
 		
 		System.out.println();
 		System.out.println("===| TESTING FIVE: UPDATE - SELLER |=== ");
-		
 		seller = sellerDao.findById(1);
 		seller.setName("Optmus Prime");
 		sellerDao.update(seller);
+		
+		System.out.println();
+		System.out.println("===| TESTING SIX: DELETE - SELLER |=== ");
+		System.out.print("Digite um ID para ser deletado: ");
+		Scanner sc = new Scanner(System.in);
+		int id = sc.nextInt();
+		sellerDao.deleteById(id);
+		System.out.println("Deleted Complete");
 		
 
 
