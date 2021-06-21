@@ -14,6 +14,7 @@ import java.util.Map;
 
 import db.DB;
 import db.DbException;
+import db.DbIntegrityException;
 import model.dao.SellerDao;
 import model.entities.Department;
 import model.entities.Seller;
@@ -94,7 +95,11 @@ public class SellerDaoJDBC implements SellerDao {
 			pst = conn.prepareStatement("DELETE FROM seller WHERE Id = ?");
 			
 			pst.setInt(1, id);
-			pst.executeUpdate();
+			int rows = pst.executeUpdate();
+			
+			if (rows == 0) { 
+				throw new DbIntegrityException ("Id doesnt exists.");
+			}
 			
 			
 		} catch (SQLException e) {
