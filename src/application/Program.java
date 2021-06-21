@@ -16,7 +16,7 @@ public class Program {
 		Seller seller = sellerDao.findById(2);
 		
 		System.out.println(seller);
-		
+		System.out.println();
 		System.out.println("===| TESTING TWO: FINDBYDEPARTMENT - SELLER |=== ");
 		Department dep = new Department(3, null);
 		List<Seller> list = sellerDao.findByDepartment(dep);
@@ -24,6 +24,13 @@ public class Program {
 		for (Seller x : list) {
 			System.out.println(x);
 		}
+		System.out.println();
+		System.out.println("===| TESTING THREE: FINDALL - SELLER |=== ");
+		List<Seller> listAll = sellerDao.findAll();
+		for (Seller x : listAll) {
+			System.out.println(x);
+		}
+
 		
 	
 		
