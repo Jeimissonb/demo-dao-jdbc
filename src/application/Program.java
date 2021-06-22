@@ -20,8 +20,8 @@ public class Program {
 		
 		System.out.println("===| TESTING ONE: FINDBYID - SELLER |=== ");
 		Seller seller = sellerDao.findById(2);
-		
 		System.out.println(seller);
+		
 		System.out.println();
 		System.out.println("===| TESTING TWO: FINDBYDEPARTMENT - SELLER |=== ");
 		Department dep = new Department(3, null);
